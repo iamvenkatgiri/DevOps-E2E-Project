@@ -1,0 +1,47 @@
+devopsdemo-453502-50db3ac86cfe.json
+
+otel-project-454804-af63d2dec7cc.json
+terraform-project/gcp-infra/.terraform
+
+terraform-project/gcp-infra/terraform.tfstate.backup
+
+.DS_Store
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+*.tfplan
+*.tfplan.*
+*.tfstate.d
+*.tfstate.d.*
+*.tfstate.backup
+*.tfstate.backup.*
+*.tfstate.lock.info 
+
+# Terraform directories and files
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Exclude provider binary directory
+**/terraform.d/plugins/
+**/.terraform/providers/
+
+# Exclude all JSON files (credentials)
+*.json
+
+# Local .tfvars files
+*.tfvars
+*.tfvars.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Provider lock file
+.terraform.lock.hcl
+
+# Mac specific
+.DS_Store
