@@ -13,3 +13,7 @@ output "pub_subnet_cidr"{
     value       = google_compute_subnetwork.pub_subnet.ip_cidr_range
 }
 
+output "public_subnet_self_link" {
+  value = google_compute_subnetwork.pub_subnet.self_link
+}
+

@@ -16,3 +16,9 @@ variable "vpc_name" {
 variable "pub_subnet_name" {}
 
 variable "pub_cidr_range" {}
+variable "instance_name" {}
+variable "machine_type" {}
+variable "zone" {}
+variable "image" {}
+variable "public_ssh_key_path" {}
+variable "ssh_username" {}

@@ -26,3 +26,14 @@ module "otel-project-network" {
     pub_subnet_name = var.pub_subnet_name
     pub_cidr_range = var.pub_cidr_range
 }
+
+module "public_vm" {
+  source               = "./modules/virtual_machine"
+  instance_name        = var.instance_name
+  machine_type         = var.machine_type
+  zone                 = var.zone
+  image                = var.image
+  subnet               = module.otel-project-network.public_subnet_self_link
+  ssh_username             = var.ssh_username
+  public_ssh_key_path  = var.public_ssh_key_path
+}
