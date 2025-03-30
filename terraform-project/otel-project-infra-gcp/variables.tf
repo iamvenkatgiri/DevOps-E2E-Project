@@ -8,17 +8,20 @@ variable "region_name" {
   type        = string
 }
 
-variable "vpc_name" {
+variable "proj_name" {
   description = "The name of the VPC"
   type        = string
 }
 
-variable "pub_subnet_name" {}
+variable "pub_subnet_cidr" {}
+variable "pub_sn_region" {}
 
-variable "pub_cidr_range" {}
-variable "instance_name" {}
-variable "machine_type" {}
-variable "zone" {}
-variable "image" {}
-variable "public_ssh_key_path" {}
-variable "ssh_username" {}
+variable "pri_subnet_cidr" {}
+variable "pri_sn_region" {}
+
+# variable "instance_name" {}
+# variable "machine_type" {}
+# variable "zone" {}
+# variable "image" {}
+# variable "public_ssh_key_path" {}
+# variable "ssh_username" {}

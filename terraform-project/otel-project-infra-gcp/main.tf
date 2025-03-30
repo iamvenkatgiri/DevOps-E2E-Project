@@ -22,18 +22,21 @@ terraform {
 
 module "otel-project-network" {
     source = "./modules/vpc"
-    vpc_name = var.vpc_name
-    pub_subnet_name = var.pub_subnet_name
-    pub_cidr_range = var.pub_cidr_range
+    proj_name = var.proj_name
+    pub_subnet_cidr = var.pub_subnet_cidr
+    pub_sn_region = var.pub_sn_region
+
+    pri_subnet_cidr = var.pri_subnet_cidr
+    pri_sn_region = var.pri_sn_region
 }
 
-module "public_vm" {
-  source               = "./modules/virtual_machine"
-  instance_name        = var.instance_name
-  machine_type         = var.machine_type
-  zone                 = var.zone
-  image                = var.image
-  subnet               = module.otel-project-network.public_subnet_self_link
-  ssh_username             = var.ssh_username
-  public_ssh_key_path  = var.public_ssh_key_path
-}
+# module "public_vm" {
+#   source               = "./modules/virtual_machine"
+#   instance_name        = var.instance_name
+#   machine_type         = var.machine_type
+#   zone                 = var.zone
+#   image                = var.image
+#   subnet               = module.otel-project-network.public_subnet_self_link
+#   ssh_username             = var.ssh_username
+#   public_ssh_key_path  = var.public_ssh_key_path
+# }
