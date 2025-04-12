@@ -69,3 +69,17 @@ resource "google_compute_firewall" "allow_http_https" {
   target_tags   = ["web-access"]
   description   = "Allow HTTP and HTTPS from internet"
 }
+
+
+resource "google_compute_firewall" "allow_ping" {
+  name    = "allow-ping"
+  network = google_compute_network.vpc.name
+
+  allow {
+    protocol = "icmp"
+  }
+
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["icmp-access"]  # VM must have this tag to allow traffic
+  description   = "Allow ICMP from anywhere"
+}

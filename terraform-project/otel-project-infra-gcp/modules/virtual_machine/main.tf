@@ -10,14 +10,18 @@ resource "google_compute_instance" "vm_instance" {
   }
 
   network_interface {
-    subnetwork         = var.subnet
-    access_config {}  # This block gives the instance a public IP
+    subnetwork = var.subnet
+    # Only add access_config for public instances
+    dynamic "access_config" {
+      for_each = var.is_private_instance ? [] : [1]
+      content {}
+    }
   }
 
   metadata = {
     ssh-keys = "${var.ssh_username}:${file(var.public_ssh_key_path)}"
   }
 
-  tags = ["ssh-access", "web-access"]
-
+  # Different tags based on instance type
+  tags = var.is_private_instance ? ["private-instance","icmp-access","ssh-access"] : ["ssh-access", "web-access","icmp-access"]
 }
